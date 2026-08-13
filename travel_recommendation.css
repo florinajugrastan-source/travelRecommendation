@@ -1,0 +1,120 @@
+/* Basic CSS for the navigation bar */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("./travel.jpg");
+    background-size: cover;
+}
+
+nav {
+    background-color: #c7dddd;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+nav ul {
+    list-style-type: none;
+    /* padding: 0; */
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #148673;
+    font-weight: bold;
+}
+
+/* Basic CSS for the form elements */
+body {
+    font-family: Arial, sans-serif;
+    /* margin: 20px; */
+}
+
+h1 {
+    /*margin-bottom: 20px;*/
+    color: #143777;
+    align-items: center;
+}
+
+.searchdiv {
+    background-color: #eff7f1;
+    width: 500px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 10px #254e36;
+}
+
+.s1 {
+    margin-left: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 200px;
+    padding: 5px;
+}
+
+button {
+    padding: 7px 15px;
+    background-color: #0c661b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3db351;
+}
+
+/* Basic CSS for the report section */
+h2 {
+    margin-top: 30px;
+}
+
+#report,
+#result {
+    padding: 10px;
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+#result {
+    height: 400px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#result img {
+    width: 200px;
+    height: 100px;
+}
