@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url("./travel.jpg");
+    background-image: url("./images/travel.jpg");
     background-size: cover;
 }
 
@@ -127,8 +127,16 @@ section h2{
 }
 
 .team{
-    color:#148673;
     font-size: large;
     background-color:#1fad96;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
+.sectionteam{
+    display: flex;
+}
+
+.searchsection{
+    visibility: hidden;
+}

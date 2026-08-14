@@ -14,5 +14,33 @@
           <li><a href="./contact.html" id="contact">Contact Us </a></li>
         </ul>
     </nav>
+    <section>
+    <h2>Contact Us</h2>
+    <br>
+    <p class="team">
+        Feel free to contact us to know more about your conditions and for treatment methods.
+    </p>
+    <br>
+    </section>   
+    <form id="contactForm">
+        <div class="team">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        </div>
+        <div class="team">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        </div>
+        <div class="team">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" onclick="thankyou()">Submit</button>
+    </form>
+    <script>
+        function thankyou(){
+            alert('Thank you for contacting us!')
+        }
+    </script>
 </body>
 </html>
