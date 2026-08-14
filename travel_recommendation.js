@@ -1,8 +1,6 @@
-const addPatientButton = document.getElementById("addPatient");
-const report = document.getElementById("report");
 const btnSearch = document.getElementById('btnSearch');
 const btnClear = document.getElementById('btnClear');
-const destinations = [];
+const resultDiv = document.getElementById('result');
 
 function clearSearch() {
     document.getElementById("conditionInput").value = "";
@@ -11,63 +9,43 @@ function clearSearch() {
 
 function searchDest() {
     const input = document.getElementById('conditionInput').value.toLowerCase();
-    const resultDiv = document.getElementById('result');
     let valid = false;
 
     fetch('travel_recommendation_api.json')
         .then(response => response.json())
         .then(data => {
             switch (input){
-                case "country":{
-                    const dest_array = data[0];
-                    valid = true;
-                }
-                break;
                 case "temple":{
-                    const dest_array = data[1];
-                    valid = true;
+                    const dest_array = data.temples;
+                    generateDestinations(dest_array);
                 }
                 break;
                 case "beach":{
-                    const dest_array = data[2];
-                    valid = true;
+                    const dest_array = data.beaches;
+                    generateDestinations(dest_array);
                 }
                 break;
                 default:{
-                    alert('Please enter a value from: beach, temple, country');
-                    valid = false;
+                    const dest_array = data.countries;
+                    const country = dest_array.find(item => item.name.toLowerCase() === input);
+                    console.log(country);
+                    generateDestinations(country.cities);
                 }
-            }
-
-            if (valid == true){
-                resultDiv.innerHTML = "<h2>Search results</h2>";
-                for (const gender in genderConditionsCount) {
-                    report.innerHTML += `${gender}:<br>`;
-                    for (const condition in genderConditionsCount[gender]) {
-                        report.innerHTML += `&nbsp;&nbsp;${condition}: ${genderConditionsCount[gender][condition]}<br>`;
-                    }
-                }
-/*            if (condition) {
-                const symptoms = condition.symptoms.join(', ');
-                const prevention = condition.prevention.join(', ');
-                const treatment = condition.treatment;
-
-                resultDiv.innerHTML += `<h2>${condition.name}</h2>`;
-                resultDiv.innerHTML += `<img src="${condition.imagesrc}" alt="hjh">`;
-
-                resultDiv.innerHTML += `<p><strong>Symptoms:</strong> ${symptoms}</p>`;
-                resultDiv.innerHTML += `<p><strong>Prevention:</strong> ${prevention}</p>`;
-                resultDiv.innerHTML += `<p><strong>Treatment:</strong> ${treatment}</p>`;
-            } else {
-                resultDiv.innerHTML = 'Condition not found.';
-            }
-*/
             }
         })
         .catch(error => {
             console.error('Error:', error);
             resultDiv.innerHTML = 'An error occurred while fetching data.';
         });
+}
+
+function generateDestinations(dest_array){
+    resultDiv.innerHTML = "<h2>Search results</h2>";
+    for (let i=0; i<dest_array.length; i++) {
+        resultDiv.innerHTML += `<img src="${dest_array[i].imageUrl}" alt="hjh">`;
+        resultDiv.innerHTML += `<p>Destination: ${dest_array[i].name}</p>`;
+        resultDiv.innerHTML += `<p>Description: ${dest_array[i].description}</p><br>`;
+    }
 }
 
 btnSearch.addEventListener('click', searchDest);
