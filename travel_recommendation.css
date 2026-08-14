@@ -94,32 +94,6 @@ button:hover {
     background-color: #3db351;
 }
 
-/* Basic CSS for the report section */
-h2 {
-    margin-top: 30px;
-}
-
-#report,
-#result {
-    padding: 10px;
-    max-width: 400px;
-    word-wrap: break-word;
-}
-
-#result {
-    height: 400px;
-    width: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-}
-
-#result img {
-    width: 200px;
-    height: 100px;
-}
-
 section h2{
     font-weight: bold;
     font-size: x-large;
@@ -137,10 +111,31 @@ section h2{
     display: flex;
 }
 
+#searchResults{
+    visibility: hidden;
+    color: #c7dddd;
+    margin-left: 100px;
+    margin-top: 100px;
+    font-size: xx-large;
+}
+
 .report {
     display:grid;
-    grid-template-columns: auto auto auto;
+    grid-auto-flow: column;
+    grid-auto-columns: 300px;
+    column-gap: 10px;
+    color: #c7dddd;
+    font-size: large;
+    margin-left: 100px;
+    margin-top: 50px;
 }
 .resitem {
     background-color: #c7dddd;
+    color: #143777;
+    width: 360px;
+}
+
+img {
+    width: 360px;
+    height: 270px;
 }
