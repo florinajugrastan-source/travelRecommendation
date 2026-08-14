@@ -137,6 +137,10 @@ section h2{
     display: flex;
 }
 
-.searchsection{
-    visibility: hidden;
+.report {
+    display:grid;
+    grid-template-columns: auto auto auto;
+}
+.resitem {
+    background-color: #c7dddd;
 }

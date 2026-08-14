@@ -40,12 +40,16 @@ function searchDest() {
 }
 
 function generateDestinations(dest_array){
-    resultDiv.innerHTML = "<h2>Search results</h2>";
+    resultDiv.innerHTML = "<h2>Search results</h2><br>";
+    let divcontent = '';
+
     for (let i=0; i<dest_array.length; i++) {
-        resultDiv.innerHTML += `<img src="${dest_array[i].imageUrl}" alt="hjh">`;
-        resultDiv.innerHTML += `<p>Destination: ${dest_array[i].name}</p>`;
-        resultDiv.innerHTML += `<p>Description: ${dest_array[i].description}</p><br>`;
+        divcontent += `<img src="${dest_array[i].imageUrl}">`;
+        divcontent += `<p><strong>${dest_array[i].name}</strong></p>`;
+        divcontent += `<p>${dest_array[i].description}</p>`;
+        resultDiv.innerHTML += `<div class="resitem">${divcontent}</div>`;
     }
+
 }
 
 btnSearch.addEventListener('click', searchDest);
