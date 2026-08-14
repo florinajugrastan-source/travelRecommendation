@@ -17,31 +17,36 @@ function searchDest() {
     fetch('travel_recommendation_api.json')
         .then(response => response.json())
         .then(data => {
-//            do{
-                switch (input){
-                    case "country":{
-                        const dest_array = data[0];
-                        valid = true;
-                    }
-                    break;
-                    case "temple":{
-                        const dest_array = data[1];
-                        valid = true;
-                    }
-                    break;
-                    case "beach":{
-                        const dest_array = data[2];
-                        valid = true;
-                    }
-                    break;
-                    default:{
-                        alert('Please enter a value from: beach, temple, country');
-                        valid = false;
+            switch (input){
+                case "country":{
+                    const dest_array = data[0];
+                    valid = true;
                 }
-//            } while (valid == true);
+                break;
+                case "temple":{
+                    const dest_array = data[1];
+                    valid = true;
+                }
+                break;
+                case "beach":{
+                    const dest_array = data[2];
+                    valid = true;
+                }
+                break;
+                default:{
+                    alert('Please enter a value from: beach, temple, country');
+                    valid = false;
+                }
+            }
 
-            resultDiv.innerHTML = "<h2>Search results</h2>";
-
+            if (valid == true){
+                resultDiv.innerHTML = "<h2>Search results</h2>";
+                for (const gender in genderConditionsCount) {
+                    report.innerHTML += `${gender}:<br>`;
+                    for (const condition in genderConditionsCount[gender]) {
+                        report.innerHTML += `&nbsp;&nbsp;${condition}: ${genderConditionsCount[gender][condition]}<br>`;
+                    }
+                }
 /*            if (condition) {
                 const symptoms = condition.symptoms.join(', ');
                 const prevention = condition.prevention.join(', ');
@@ -57,6 +62,7 @@ function searchDest() {
                 resultDiv.innerHTML = 'Condition not found.';
             }
 */
+            }
         })
         .catch(error => {
             console.error('Error:', error);
