@@ -1,10 +1,10 @@
 const btnSearch = document.getElementById('btnSearch');
 const btnClear = document.getElementById('btnClear');
-const resultDiv = document.getElementById('result');
+const resultDiv = document.getElementById('report');
 
 function clearSearch() {
     document.getElementById("conditionInput").value = "";
-    document.getElementById('result').innerHTML = "";
+    document.getElementById('report').innerHTML = "";
 }
 
 function searchDest() {
